@@ -1,0 +1,281 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>إنت مين والناس نايمين؟ · collateral feelings · nwaré</title>
+<meta name="description" content="collateral feelings, drawings and lettering by ghenwa (nwaré) abou fayad, at tota, beirut, october 2026.">
+<meta property="og:title" content="إنت مين والناس نايمين؟ · collateral feelings">
+<meta property="og:description" content="drawings and lettering by ghenwa (nwaré) abou fayad · tota, beirut">
+<meta property="og:image" content="img/10_enta_min_wel_nas_naymin.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,300..800&family=Readex+Pro:wght@300..700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --paper:#F2E8CC;      /* the passe-partout cream */
+  --ink:#141210;
+  --red:#E2231A;        /* the sold dot */
+  --orange:#FF920A;
+  --green:#1EBE69;
+  --blue:#2E4BFF;
+  --lat:"Bricolage Grotesque",system-ui,sans-serif;
+  --ar:"Readex Pro","Geeza Pro",system-ui,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--lat);font-size:17px;line-height:1.5;-webkit-font-smoothing:antialiased}
+[lang=ar],.ar{font-family:var(--ar);direction:rtl;text-align:right}
+a{color:inherit}
+
+/* masthead */
+header{padding:28px 20px 18px;max-width:1180px;margin:0 auto;position:relative}
+.kicker{font-size:14px;letter-spacing:.02em;display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.kicker b{background:var(--ink);color:var(--paper);padding:2px 9px;border-radius:99px;font-weight:600}
+h1{margin:14px 0 0;line-height:1}
+h1 .ar{display:block;font-size:clamp(46px,11vw,128px);font-weight:700;letter-spacing:-.01em}
+h1 .lat{display:block;font-size:clamp(30px,6.4vw,74px);font-weight:300;font-style:italic;margin-top:6px}
+.dot{display:inline-block;width:.62em;height:.62em;border-radius:50%;background:var(--red);vertical-align:.04em}
+
+/* tabs */
+nav{position:sticky;top:0;z-index:5;background:var(--paper);border-bottom:2px solid var(--ink)}
+nav .in{max-width:1180px;margin:0 auto;display:flex;gap:8px;padding:10px 20px;overflow-x:auto}
+nav button{font:600 15px/1 var(--lat);border:2px solid var(--ink);background:transparent;color:var(--ink);padding:10px 16px;border-radius:99px;cursor:pointer;white-space:nowrap;display:flex;gap:7px;align-items:center}
+nav button span.ar{font-weight:500;font-size:14px}
+nav button[aria-selected=true]{color:#fff;border-color:var(--c)}
+nav button[aria-selected=true]{background:var(--c)}
+nav button:active{transform:scale(.97)}
+
+main{max-width:1180px;margin:0 auto;padding:26px 20px 70px}
+section[hidden]{display:none}
+
+/* statement */
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:28px 48px;align-items:start}
+.pair+.pair{margin-top:42px}
+.label{font:700 12px/1 var(--lat);letter-spacing:.14em;text-transform:uppercase;display:flex;gap:8px;align-items:center;margin-bottom:12px}
+.label::before{content:"";width:12px;height:12px;background:var(--c,var(--ink));border-radius:3px}
+.ar .label{flex-direction:row-reverse;justify-content:flex-start;font-family:var(--ar);letter-spacing:0;font-size:14px;text-transform:none}
+.statement p{font-size:clamp(20px,2.4vw,27px);line-height:1.35;margin:0 0 .6em}
+.statement .ar p{font-size:clamp(21px,2.5vw,28px);line-height:1.6}
+.bio p{margin:0 0 .8em}
+.bio .ar p{line-height:1.85}
+.buy{margin-top:46px;border:2px solid var(--ink);border-radius:22px;padding:22px 24px;background:#fff8e4;display:grid;grid-template-columns:1fr 1fr;gap:20px 48px}
+.buy h3{margin:0 0 8px;font-size:20px}
+.buy ul{margin:0;padding-left:20px}
+.buy .ar ul{padding-left:0;padding-right:20px}
+.buy li{margin:4px 0}
+
+/* works */
+.key{display:flex;flex-wrap:wrap;gap:10px;margin:0 0 26px}
+.chip{border:2px solid var(--ink);border-radius:99px;padding:7px 14px;font-weight:600;font-size:15px;background:#fff8e4}
+.chip.c1{background:var(--orange)} .chip.c2{background:var(--green)} .chip.c3{background:var(--blue);color:#fff}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:34px 28px}
+.work{margin:0}
+.work .pic{background:#fff;border:2px solid var(--ink);border-radius:6px;padding:14px;display:flex;align-items:center;justify-content:center;aspect-ratio:1/1}
+.work img{max-width:100%;max-height:100%;display:block}
+.work figcaption{padding-top:12px}
+.t-ar{font:600 22px/1.35 var(--ar);direction:rtl;text-align:right;margin:0}
+.t-en{font-size:20px;font-weight:600;font-style:italic;margin:2px 0 6px}
+.meta{font-size:14px;opacity:.82}
+.price{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.price span{border:2px solid var(--ink);border-radius:10px;padding:5px 10px;font-size:14px;line-height:1.25;background:#fff8e4}
+.price b{font-size:18px;display:block}
+.price .fr{background:var(--ink);color:var(--paper)}
+.def{font-size:15px;margin:8px 0 0;padding:10px 12px;border-left:4px solid var(--red);background:#fff8e4}
+.series{grid-column:1/-1;display:flex;flex-wrap:wrap;gap:10px 18px;align-items:center;margin:4px 0 -6px;padding:12px 16px;border-radius:14px;background:var(--orange);border:2px solid var(--ink)}
+.series b{font-size:18px}
+.series .ar{margin-left:auto;font-weight:600}
+.mural{grid-column:1/-1;display:grid;grid-template-columns:1.6fr 1fr;gap:24px;align-items:start;margin-top:10px}
+.mural .pic{aspect-ratio:auto}
+.mural .photo img{width:100%;display:block;border:2px solid var(--ink);border-radius:6px}
+.mural .photo p{font-size:14px;margin:8px 0 0}
+
+/* reel + instagram */
+.reel{position:relative;padding-top:56.25%;border:2px solid var(--ink);border-radius:10px;overflow:hidden;background:var(--ink)}
+.reel iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+.ig{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:18px}
+.ig a{display:block;text-decoration:none;border:2px solid var(--ink);border-radius:22px;padding:26px 24px;font-size:clamp(22px,3vw,30px);font-weight:700;background:var(--c);color:#fff}
+.ig a small{display:block;font-size:14px;font-weight:500;margin-top:6px;opacity:.9}
+.ig a:active{transform:scale(.98)}
+
+footer{max-width:1180px;margin:0 auto;padding:0 20px 40px;font-size:14px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+
+@media (max-width:760px){
+  body{font-size:16px}
+  .pair,.buy,.mural{grid-template-columns:1fr}
+  .pair{gap:22px}
+  .grid{grid-template-columns:1fr}
+  .series .ar{margin-left:0}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="kicker"><b>tota, beirut</b> <span>opening tuesday 21 october 2026, 8 pm</span></div>
+  <h1><span class="ar" lang="ar">إنت مين والناس نايمين؟</span><span class="lat">collateral feelings <span class="dot" title="a red dot on the wall means the framed copy is taken"></span></span></h1>
+</header>
+
+<nav aria-label="sections"><div class="in" role="tablist">
+  <button role="tab" data-tab="statement" style="--c:var(--red)">statement <span class="ar">النص</span></button>
+  <button role="tab" data-tab="works" style="--c:var(--orange)">works &amp; prices <span class="ar">الأعمال</span></button>
+  <button role="tab" data-tab="reel" style="--c:var(--blue)">reel</button>
+  <button role="tab" data-tab="instagram" style="--c:var(--green)">instagram</button>
+</div></nav>
+
+<main>
+
+<!-- STATEMENT -->
+<section id="p-statement" role="tabpanel">
+  <div class="pair statement">
+    <div style="--c:var(--red)">
+      <div class="label">artist statement</div>
+      <p><span lang="ar">إِنْتْ مِينْ وِالنَّاسْ نَايْمِينْ؟</span> / collateral feelings is a selection of drawings and lettering made between 2023 and 2026. the series responds to the social, political and religious climate that has been roaming the region. line by line, the hatching carries words that are said every day here, and figures caught in their moods towards themselves.</p>
+    </div>
+    <div class="ar" lang="ar" style="--c:var(--red)">
+      <div class="label">نصّ المعرض</div>
+      <p>«إِنْتْ مِينْ وِالنَّاسْ نَايْمِينْ؟» مجموعة مختارة من الرسوم والخطوط أُنجزت بين ٢٠٢٣ و٢٠٢٦. تأتي هذه السلسلة ردًّا على المناخ الاجتماعي والسياسي والديني الذي يخيّم على المنطقة. خطًّا بعد خطّ، يحمل التظليل كلماتٍ تُقال هنا كلّ يوم، وشخوصًا عالقة في أحوالها مع نفسها.</p>
+    </div>
+  </div>
+
+  <div class="pair bio">
+    <div style="--c:var(--blue)">
+      <div class="label">bio</div>
+      <p>ghenwa (nwaré) abou fayad is a lebanese cross-disciplinary artist, illustrator and composer based in amsterdam. her practice moves between drawing, lettering, sound and music performance. her work explores language, oral history and repetition through storytelling. nwaré has shown and performed across europe and lebanon, including at the van gogh museum, w139, the stedelijk museum, beit beirut, holland festival and sonic acts. collateral feelings is her second exhibition at tota, after ‘processus’ in 2018.</p>
+    </div>
+    <div class="ar" lang="ar" style="--c:var(--blue)">
+      <div class="label">نبذة</div>
+      <p>غنوة (nwaré) أبو فيّاض فنّانة لبنانية متعدّدة التخصّصات، رسّامة ومؤلّفة موسيقية، تقيم في أمستردام. تتنقّل ممارستها بين الرسم والخطّ والصوت والأداء الموسيقي، ويستكشف عملها اللغة والتاريخ الشفهي والتكرار من خلال الحكي. عرضت أعمالها وقدّمت عروضها في أوروبا ولبنان، ومنها متحف فان غوخ، وW139، ومتحف ستيدليك، وبيت بيروت، ومهرجان هولندا، وSonic Acts. «إنت مين والناس نايمين؟» هو معرضها الثاني في توتا، بعد «processus» عام ٢٠١٨.</p>
+    </div>
+  </div>
+
+  <div class="buy">
+    <div>
+      <h3>how to buy</h3>
+      <ul>
+        <li>one framed copy of each piece hangs on the wall. a red dot means it is taken.</li>
+        <li>every piece can also be ordered, framed or unframed with passe-partout. ask the tota crew.</li>
+        <li>payment is in full when you buy or order, in cash or by whish.</li>
+      </ul>
+    </div>
+    <div class="ar" lang="ar">
+      <h3>للشراء</h3>
+      <ul>
+        <li>نسخة واحدة مؤطّرة من كلّ عمل معلّقة على الحائط. النقطة الحمراء تعني أنّها بيعت.</li>
+        <li>يمكن طلب كلّ عمل، مؤطّرًا أو من دون إطار مع passe-partout. اسألوا فريق توتا.</li>
+        <li>يُدفع المبلغ كاملًا عند الشراء أو الطلب، نقدًا أو عبر Whish.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- WORKS -->
+<section id="p-works" role="tabpanel" hidden>
+  <div class="key">
+    <span class="chip">prices in US dollars</span>
+    <span class="chip c1">unframed = print + passe-partout</span>
+    <span class="chip c3">framed = 1.2 cm frame, 5 cm passe-partout</span>
+  </div>
+
+  <div class="grid">
+
+    <div class="series"><b>the 7ale series</b><span>any two for $60 · all three for $90</span><span class="ar" lang="ar">سلسلة «حالي»: اثنتان بـ 60$ · الثلاث بـ 90$</span></div>
+
+    <figure class="work"><div class="pic"><img src="img/01_t3ebet_men_7ale.jpg" alt="t3ebet men 7ale" loading="lazy"></div><figcaption>
+      <p class="t-ar">تعبت من حالي</p><p class="t-en">tired of myself</p>
+      <div class="meta">2024 · print 29.7 × 42 cm</div>
+      <div class="price"><span>unframed<b>$35</b></span><span class="fr">framed<b>$55</b></span></div>
+    </figcaption></figure>
+
+    <figure class="work"><div class="pic"><img src="img/02_shta2et_la_7ale.jpg" alt="shta2et la 7ale" loading="lazy"></div><figcaption>
+      <p class="t-ar">اشتقت لحالي</p><p class="t-en">i missed myself</p>
+      <div class="meta">2025 · print 29.7 × 42 cm</div>
+      <div class="price"><span>unframed<b>$35</b></span><span class="fr">framed<b>$55</b></span></div>
+    </figcaption></figure>
+
+    <figure class="work"><div class="pic"><img src="img/03_nbasatet_men_7ale.jpg" alt="nbasatet men 7ale" loading="lazy"></div><figcaption>
+      <p class="t-ar">انبسطت من حالي</p><p class="t-en">pleased with myself</p>
+      <div class="meta">2026 · print 29.7 × 42 cm</div>
+      <div class="price"><span>unframed<b>$35</b></span><span class="fr">framed<b>$55</b></span></div>
+    </figcaption></figure>
+
+    <figure class="work"><div class="pic"><img src="img/04_butterfly_earfly_1.jpg" alt="hal ya toura sawtna masmou3" loading="lazy"></div><figcaption>
+      <p class="t-ar">هل يا ترى صوتنا مسموع فوق صوت الزنّانة؟</p><p class="t-en">i wonder, can our voice be heard over the buzz of the drone?</p>
+      <div class="meta">2026 · print 29.7 × 42 cm</div>
+      <div class="price"><span>unframed<b>$35</b></span><span class="fr">framed<b>$55</b></span></div>
+    </figcaption></figure>
+
+    <figure class="work"><div class="pic"><img src="img/05_butterfly_earfly_2.jpg" alt="sawtna masmou3 fo2 sot el zennene" loading="lazy"></div><figcaption>
+      <p class="t-ar">صوتنا مسموع فوق صوت الزنّانة</p><p class="t-en">our voice is heard over the buzz of the drone</p>
+      <div class="meta">2026 · print 29.7 × 42 cm</div>
+      <div class="price"><span>unframed<b>$35</b></span><span class="fr">framed<b>$55</b></span></div>
+    </figcaption></figure>
+
+    <figure class="work"><div class="pic"><img src="img/06_allahou_akbar.jpg" alt="allahou akbar" loading="lazy"></div><figcaption>
+      <p class="t-ar">الله أكبر</p><p class="t-en">god is greater</p>
+      <div class="meta">2024 · print 42 × 29.7 cm</div>
+      <div class="price"><span>unframed<b>$35</b></span><span class="fr">framed<b>$55</b></span></div>
+    </figcaption></figure>
+
+    <figure class="work"><div class="pic"><img src="img/07_qahr.jpg" alt="qahr" loading="lazy"></div><figcaption>
+      <p class="t-ar">قهر</p><p class="t-en">qahr</p>
+      <p class="def">“There is no English equivalent to the Arabic word qaher قهر. The dictionary says “anger” but it’s not. It is when you take anger, place it on a low fire, add injustice, oppression, racism, dehumanization to it, and leave it to cook slowly for a century. And then you try to say it but no one hears you. So it sits in your heart. And settles in your cells. And it becomes your genetic imprint. And then moves through generations. And one day, you find yourself unable to breathe. It washes over you and demands to break out of you. You weep. And the cycle repeats.”<br><br>as khadija muhaisen dajani described it.</p>
+      <div class="meta" style="margin-top:8px">2026 · print 29.7 × 42 cm</div>
+      <div class="price"><span>unframed<b>$35</b></span><span class="fr">framed<b>$55</b></span></div>
+    </figcaption></figure>
+
+    <figure class="work"><div class="pic"><img src="img/08_ya_allah.jpg" alt="ya allah" loading="lazy"></div><figcaption>
+      <p class="t-ar">يا الله</p><p class="t-en">oh god</p>
+      <div class="meta">2024 · print 29.7 × 42 cm</div>
+      <div class="price"><span>unframed<b>$35</b></span><span class="fr">framed<b>$55</b></span></div>
+    </figcaption></figure>
+
+    <figure class="work"><div class="pic"><img src="img/09_falastine.jpg" alt="falastine" loading="lazy"></div><figcaption>
+      <p class="t-ar">فلسطين</p><p class="t-en">palestine</p>
+      <div class="meta">2024 · print 42 × 29.7 cm</div>
+      <div class="price"><span>unframed<b>$35</b></span><span class="fr">framed<b>$55</b></span></div>
+    </figcaption></figure>
+
+    <div class="mural">
+      <figure class="work"><div class="pic"><img src="img/10_enta_min_wel_nas_naymin.jpg" alt="enta min wel nas naymin" loading="lazy"></div><figcaption>
+        <p class="t-ar">إنت مين والناس نايمين؟</p><p class="t-en">collateral feelings</p>
+        <div class="meta">2023 · print 78.5 × 40.8 cm · designed for the wall beirut mural</div>
+        <div class="price"><span>unframed<b>$75</b></span><span class="fr">framed<b>$105</b></span></div>
+      </figcaption></figure>
+      <div class="photo"><img src="img/11_mural_painting.jpg" alt="nwaré painting the mural on the wall beirut" loading="lazy"><p>nwaré painting the mural on the wall beirut, 2023.</p></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- REEL -->
+<section id="p-reel" role="tabpanel" hidden>
+  <div class="reel"><iframe src="https://player.vimeo.com/video/1200835707?dnt=1&title=0&byline=0&portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="nwaré reel" loading="lazy"></iframe></div>
+</section>
+
+<!-- INSTAGRAM -->
+<section id="p-instagram" role="tabpanel" hidden>
+  <div class="ig">
+    <a href="https://www.instagram.com/ghenwa_noire/" style="--c:var(--green)">@ghenwa_noire<small>instagram</small></a>
+    <a href="https://www.instagram.com/ghenwa_aboufayad/" style="--c:var(--blue)">@ghenwa_aboufayad<small>instagram</small></a>
+  </div>
+</section>
+
+</main>
+
+<footer><span>ghenwa (nwaré) abou fayad</span><span>tota, beirut · october 2026</span></footer>
+
+<script>
+const tabs=[...document.querySelectorAll('[role=tab]')],panels=[...document.querySelectorAll('[role=tabpanel]')];
+function show(id,push){
+  if(!panels.some(p=>p.id==='p-'+id))id='statement';
+  tabs.forEach(t=>t.setAttribute('aria-selected',t.dataset.tab===id));
+  panels.forEach(p=>p.hidden=p.id!=='p-'+id);
+  if(push)history.replaceState(null,'','#'+id);
+}
+tabs.forEach(t=>t.addEventListener('click',()=>{show(t.dataset.tab,true);window.scrollTo({top:document.querySelector('nav').offsetTop,behavior:'instant'})}));
+window.addEventListener('hashchange',()=>show(location.hash.slice(1)));
+show(location.hash.slice(1)||'statement');
+</script>
+</body>
+</html>
