@@ -76,6 +76,51 @@ figcaption{position:absolute;left:0;bottom:0;background:var(--bg);font-size:11px
 .links a span{font-size:12px;color:var(--mute);font-weight:400;margin-left:auto}
 .links a:hover{background:var(--block)}
 footer{padding:40px 0 70px;text-align:center;font-size:12px;color:var(--mute);line-height:1.6}
+
+/* buying */
+.buy{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.buy button{font:500 13px/1 'Libre Franklin',sans-serif;background:var(--block);border:0;padding:11px 12px;cursor:pointer;color:var(--ink);display:inline-flex;align-items:center;gap:7px}
+.buy button i{width:7px;height:7px;background:var(--c)}
+.buy button b{font-weight:700}
+.buy button em{font-style:normal;color:var(--mute);margin-left:6px;font-size:12px}
+.buy button:hover{background:#E9E9E9}
+.buy button.on{background:var(--ink);color:#fff}.buy button.on em{color:#fff}.buy button.on i{outline:1px solid #fff}
+.desc b{font-weight:700}
+#bag{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--ink);color:#fff;display:none}
+#bag.show{display:block}
+#bag .in{max-width:1200px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:14px}
+#bag .sum{font-size:14px}#bag .sum b{font-size:16px}
+#bag button{margin-left:auto;font:700 14px/1 'Libre Franklin',sans-serif;background:#fff;color:var(--ink);border:0;padding:13px 18px;cursor:pointer;text-transform:uppercase;letter-spacing:.02em}
+body.bagged{padding-bottom:70px}
+#sheet{position:fixed;inset:0;z-index:30;background:var(--bg);overflow:auto;display:none}
+#sheet.show{display:block}
+#sheet .in{max-width:620px;margin:0 auto;padding:22px 20px 60px}
+#sheet .head{display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid var(--line);padding-bottom:14px;margin-bottom:6px}
+#sheet .head h2{margin:0;font-size:18px;font-weight:700}
+#sheet .x{font:500 13px 'Libre Franklin',sans-serif;background:var(--block);border:0;padding:10px 12px;cursor:pointer}
+#sheet .item{display:flex;gap:10px;align-items:baseline;padding:12px 0;border-bottom:1px solid var(--line)}
+#sheet .item i{width:7px;height:7px;background:var(--c);flex:none}
+#sheet .item .t{flex:1}#sheet .item .t small{display:block;color:var(--sub);font-size:12px}
+#sheet .item .pr{font-weight:600}
+#sheet .item .rm{font:12px 'Libre Franklin',sans-serif;background:none;border:0;color:var(--mute);cursor:pointer;text-decoration:underline}
+#sheet .deal{color:#1EBE69;font-weight:600}
+#sheet .total{display:flex;justify-content:space-between;font-size:20px;font-weight:700;padding:16px 0}
+#sheet label{display:block;font-size:12px;color:var(--sub);margin:14px 0 6px}
+#sheet input{width:100%;font:16px 'Libre Franklin',sans-serif;border:0;border-bottom:1px solid var(--ink);padding:8px 0;outline:none;background:transparent}
+#sheet .pay{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:22px}
+#sheet .pay button,#sheet .big{font:700 15px/1 'Libre Franklin',sans-serif;border:0;padding:18px 12px;cursor:pointer;background:var(--ink);color:#fff;text-transform:uppercase;letter-spacing:.02em}
+#sheet .pay button.alt{background:var(--block);color:var(--ink)}
+#sheet .hint{font-size:12px;color:var(--mute);margin-top:8px}
+#sheet .step{border-top:1px solid var(--line);padding:16px 0}
+#sheet .step .n{font-size:11px;color:var(--mute)}
+#sheet .step p{margin:4px 0 10px;font-size:15px}
+#sheet .copy{display:flex;gap:8px;align-items:stretch}
+#sheet .copy code{flex:1;font:600 16px 'Libre Franklin',sans-serif;background:var(--block);padding:12px;word-break:break-word;white-space:pre-wrap}
+#sheet .copy button{font:600 13px 'Libre Franklin',sans-serif;border:0;background:var(--ink);color:#fff;padding:0 14px;cursor:pointer;min-width:74px}
+#sheet .copy button.done{background:#1EBE69}
+#sheet .show-crew{font-size:22px;line-height:1.35;font-weight:700;margin:14px 0}
+#sheet .warn{border-left:4px solid #F1503C;padding:10px 12px;background:var(--block);font-size:15px;margin-top:16px}
+#sheet .back{font:13px 'Libre Franklin',sans-serif;background:none;border:0;color:var(--sub);text-decoration:underline;cursor:pointer;padding:0;margin-top:18px}
 @media (max-width:1240px){.wrap{padding:0 20px}}
 @media (max-width:700px){
  .top{position:static}
@@ -119,8 +164,8 @@ footer{padding:40px 0 70px;text-align:center;font-size:12px;color:var(--mute);li
   <div class="ar" lang="ar" style="--c:#F1503C"><span class="tag"><i></i>نصّ المعرض</span><p>«إِنْتْ مِينْ وِالنَّاسْ نَايْمِينْ؟» مجموعة مختارة من الرسوم والخطوط أُنجزت بين ٢٠٢٣ و٢٠٢٦. تأتي هذه السلسلة ردًّا على المناخ الاجتماعي والسياسي والديني الذي يخيّم على المنطقة. خطًّا بعد خطّ، يحمل التظليل كلماتٍ تُقال هنا كلّ يوم، وشخوصًا عالقة في أحوالها مع نفسها.</p></div></li>
  <li class="text"><div style="--c:#2F6BFF"><span class="tag"><i></i>bio</span><p>ghenwa (nwaré) abou fayad is a lebanese cross-disciplinary artist, illustrator and composer based in amsterdam. her practice moves between drawing, lettering, sound and music performance. her work explores language, oral history and repetition through storytelling. nwaré has shown and performed across europe and lebanon, including at the van gogh museum, w139, the stedelijk museum, beit beirut, holland festival and sonic acts. collateral feelings is her second exhibition at tota, after ‘processus’ in 2018.</p></div>
   <div class="ar" lang="ar" style="--c:#2F6BFF"><span class="tag"><i></i>نبذة</span><p>غنوة (nwaré) أبو فيّاض فنّانة لبنانية متعدّدة التخصّصات، رسّامة ومؤلّفة موسيقية، تقيم في أمستردام. تتنقّل ممارستها بين الرسم والخطّ والصوت والأداء الموسيقي، ويستكشف عملها اللغة والتاريخ الشفهي والتكرار من خلال الحكي. عرضت أعمالها وقدّمت عروضها في أوروبا ولبنان، ومنها متحف فان غوخ، وW139، ومتحف ستيدليك، وبيت بيروت، ومهرجان هولندا، وSonic Acts. «إنت مين والناس نايمين؟» هو معرضها الثاني في توتا، بعد «processus» عام ٢٠١٨.</p></div></li>
- <li class="text small"><div style="--c:#1EBE69"><span class="tag"><i></i>how to buy</span><p>to buy, ask the tota crew at the bar: they write down your name, the piece, and framed or unframed. pay in full there, in cash or by whish. <b>whish number: 70093342.</b> in the transfer note, write <b>your name, the name of the piece, and framed or unframed</b>, and show the crew the confirmation. a red dot on the wall means the framed copy is taken; every piece can still be ordered.</p></div>
-  <div class="ar" lang="ar" style="--c:#1EBE69"><span class="tag"><i></i>للشراء</span><p>للشراء، اسألوا فريق توتا على البار، فيدوّنون الاسم واسم العمل، ومع إطار أو من دون إطار. يُدفع المبلغ كاملًا هناك، نقدًا أو عبر Whish. <b>رقم الدفع عبر Whish هو 70093342.</b> اكتبوا في ملاحظة التحويل <b>اسم المشتري، واسم العمل، ومع إطار أو من دون إطار</b>، وأروا الفريق تأكيد الدفع. النقطة الحمراء على الحائط تعني أنّ النسخة المؤطّرة بيعت، ويمكن طلب كلّ عمل مع ذلك.</p></div></li>
+ <li class="text small"><div style="--c:#1EBE69"><span class="tag"><i></i>how to buy</span><p>to buy, tap “add +” under any piece in <b>buy the works</b>, or ask the tota crew at the bar: they write down your name, the piece, and framed or unframed. pay in full there, in cash or by whish. <b>whish number: 70093342.</b> in the transfer note, write <b>your name, the name of the piece, and framed or unframed</b>, and show the crew the confirmation. a red dot on the wall means the framed copy is taken; every piece can still be ordered.</p></div>
+  <div class="ar" lang="ar" style="--c:#1EBE69"><span class="tag"><i></i>للشراء</span><p>للشراء، اضغطوا «add +» تحت أي عمل في <b>شراء الأعمال</b>، أو اسألوا فريق توتا على البار، فيدوّنون الاسم واسم العمل، ومع إطار أو من دون إطار. يُدفع المبلغ كاملًا هناك، نقدًا أو عبر Whish. <b>رقم الدفع عبر Whish هو 70093342.</b> اكتبوا في ملاحظة التحويل <b>اسم المشتري، واسم العمل، ومع إطار أو من دون إطار</b>، وأروا الفريق تأكيد الدفع. النقطة الحمراء على الحائط تعني أنّ النسخة المؤطّرة بيعت، ويمكن طلب كلّ عمل مع ذلك.</p></div></li>
 </ul></section>
 
 <section id="p-works" role="tabpanel" hidden><ul>
@@ -129,24 +174,24 @@ footer{padding:40px 0 70px;text-align:center;font-size:12px;color:var(--mute);li
     <h3 class="ar" lang="ar">تعبت من حالي</h3>
     <p class="en">tired of myself</p>
     <p class="ven">2024 · print 29.7 × 42 cm</p>
-    <p class="desc">part of the 7ale series: any two for $60, all three for $90 (unframed).</p>
-    <p class="marks"><span style="--c:#1EBE69"><i></i>unframed, with passe-partout <b>$35</b></span><span style="--c:#17150F"><i></i>framed <b>$55</b></span></p>
+    <p class="desc">part of the 7ale series: <b>any two for $60, all three for $90</b> (unframed). add them and the price adjusts by itself.</p>
+    <div class="buy" data-id="01" data-title="tired of myself" data-u="35" data-f="55" data-series="7ale"><button type="button" data-kind="u" style="--c:#1EBE69"><i></i>unframed, with passe-partout <b>$35</b><em>add +</em></button><button type="button" data-kind="f" style="--c:#17150F"><i></i>framed <b>$55</b><em>add +</em></button></div>
   </div></li>
 <li class="row"><figure class="art"><img src="img/02_shta2et_la_7ale.jpg" alt="i missed myself" loading="lazy"></figure>
   <div class="label"><span class="num">02</span>
     <h3 class="ar" lang="ar">اشتقت لحالي</h3>
     <p class="en">i missed myself</p>
     <p class="ven">2025 · print 29.7 × 42 cm</p>
-    <p class="desc">part of the 7ale series: any two for $60, all three for $90 (unframed).</p>
-    <p class="marks"><span style="--c:#1EBE69"><i></i>unframed, with passe-partout <b>$35</b></span><span style="--c:#17150F"><i></i>framed <b>$55</b></span></p>
+    <p class="desc">part of the 7ale series: <b>any two for $60, all three for $90</b> (unframed). add them and the price adjusts by itself.</p>
+    <div class="buy" data-id="02" data-title="i missed myself" data-u="35" data-f="55" data-series="7ale"><button type="button" data-kind="u" style="--c:#1EBE69"><i></i>unframed, with passe-partout <b>$35</b><em>add +</em></button><button type="button" data-kind="f" style="--c:#17150F"><i></i>framed <b>$55</b><em>add +</em></button></div>
   </div></li>
 <li class="row"><figure class="art"><img src="img/03_nbasatet_men_7ale.jpg" alt="pleased with myself" loading="lazy"></figure>
   <div class="label"><span class="num">03</span>
     <h3 class="ar" lang="ar">انبسطت من حالي</h3>
     <p class="en">pleased with myself</p>
     <p class="ven">2026 · print 29.7 × 42 cm</p>
-    <p class="desc">part of the 7ale series: any two for $60, all three for $90 (unframed).</p>
-    <p class="marks"><span style="--c:#1EBE69"><i></i>unframed, with passe-partout <b>$35</b></span><span style="--c:#17150F"><i></i>framed <b>$55</b></span></p>
+    <p class="desc">part of the 7ale series: <b>any two for $60, all three for $90</b> (unframed). add them and the price adjusts by itself.</p>
+    <div class="buy" data-id="03" data-title="pleased with myself" data-u="35" data-f="55" data-series="7ale"><button type="button" data-kind="u" style="--c:#1EBE69"><i></i>unframed, with passe-partout <b>$35</b><em>add +</em></button><button type="button" data-kind="f" style="--c:#17150F"><i></i>framed <b>$55</b><em>add +</em></button></div>
   </div></li>
 <li class="row"><figure class="art"><img src="img/04_butterfly_earfly_1.jpg" alt="i wonder, can our voice be heard over the buzz of the drone?" loading="lazy"></figure>
   <div class="label"><span class="num">04</span>
@@ -154,7 +199,7 @@ footer{padding:40px 0 70px;text-align:center;font-size:12px;color:var(--mute);li
     <p class="en">i wonder, can our voice be heard over the buzz of the drone?</p>
     <p class="ven">2026 · print 29.7 × 42 cm</p>
     
-    <p class="marks"><span style="--c:#1EBE69"><i></i>unframed, with passe-partout <b>$35</b></span><span style="--c:#17150F"><i></i>framed <b>$55</b></span></p>
+    <div class="buy" data-id="04" data-title="i wonder, can our voice be heard over the buzz of the drone?" data-u="35" data-f="55" data-series=""><button type="button" data-kind="u" style="--c:#1EBE69"><i></i>unframed, with passe-partout <b>$35</b><em>add +</em></button><button type="button" data-kind="f" style="--c:#17150F"><i></i>framed <b>$55</b><em>add +</em></button></div>
   </div></li>
 <li class="row"><figure class="art"><img src="img/05_butterfly_earfly_2.jpg" alt="our voice is heard over the buzz of the drone" loading="lazy"></figure>
   <div class="label"><span class="num">05</span>
@@ -162,7 +207,7 @@ footer{padding:40px 0 70px;text-align:center;font-size:12px;color:var(--mute);li
     <p class="en">our voice is heard over the buzz of the drone</p>
     <p class="ven">2026 · print 29.7 × 42 cm</p>
     
-    <p class="marks"><span style="--c:#1EBE69"><i></i>unframed, with passe-partout <b>$35</b></span><span style="--c:#17150F"><i></i>framed <b>$55</b></span></p>
+    <div class="buy" data-id="05" data-title="our voice is heard over the buzz of the drone" data-u="35" data-f="55" data-series=""><button type="button" data-kind="u" style="--c:#1EBE69"><i></i>unframed, with passe-partout <b>$35</b><em>add +</em></button><button type="button" data-kind="f" style="--c:#17150F"><i></i>framed <b>$55</b><em>add +</em></button></div>
   </div></li>
 <li class="row"><figure class="art"><img src="img/06_allahou_akbar.jpg" alt="god is greater" loading="lazy"></figure>
   <div class="label"><span class="num">06</span>
@@ -170,7 +215,7 @@ footer{padding:40px 0 70px;text-align:center;font-size:12px;color:var(--mute);li
     <p class="en">god is greater</p>
     <p class="ven">2024 · print 42 × 29.7 cm</p>
     
-    <p class="marks"><span style="--c:#1EBE69"><i></i>unframed, with passe-partout <b>$35</b></span><span style="--c:#17150F"><i></i>framed <b>$55</b></span></p>
+    <div class="buy" data-id="06" data-title="god is greater" data-u="35" data-f="55" data-series=""><button type="button" data-kind="u" style="--c:#1EBE69"><i></i>unframed, with passe-partout <b>$35</b><em>add +</em></button><button type="button" data-kind="f" style="--c:#17150F"><i></i>framed <b>$55</b><em>add +</em></button></div>
   </div></li>
 <li class="row"><figure class="art"><img src="img/07_qahr.jpg" alt="qahr" loading="lazy"></figure>
   <div class="label"><span class="num">07</span>
@@ -178,7 +223,7 @@ footer{padding:40px 0 70px;text-align:center;font-size:12px;color:var(--mute);li
     <p class="en">qahr</p>
     <p class="ven">2026 · print 29.7 × 42 cm</p>
     <p class="desc quote">“There is no English equivalent to the Arabic word qaher قهر. The dictionary says “anger” but it’s not. It is when you take anger, place it on a low fire, add injustice, oppression, racism, dehumanization to it, and leave it to cook slowly for a century. And then you try to say it but no one hears you. So it sits in your heart. And settles in your cells. And it becomes your genetic imprint. And then moves through generations. And one day, you find yourself unable to breathe. It washes over you and demands to break out of you. You weep. And the cycle repeats.”<br><br>as khadija muhaisen dajani described it.</p>
-    <p class="marks"><span style="--c:#1EBE69"><i></i>unframed, with passe-partout <b>$35</b></span><span style="--c:#17150F"><i></i>framed <b>$55</b></span></p>
+    <div class="buy" data-id="07" data-title="qahr" data-u="35" data-f="55" data-series=""><button type="button" data-kind="u" style="--c:#1EBE69"><i></i>unframed, with passe-partout <b>$35</b><em>add +</em></button><button type="button" data-kind="f" style="--c:#17150F"><i></i>framed <b>$55</b><em>add +</em></button></div>
   </div></li>
 <li class="row"><figure class="art"><img src="img/08_ya_allah.jpg" alt="oh god" loading="lazy"></figure>
   <div class="label"><span class="num">08</span>
@@ -186,7 +231,7 @@ footer{padding:40px 0 70px;text-align:center;font-size:12px;color:var(--mute);li
     <p class="en">oh god</p>
     <p class="ven">2024 · print 29.7 × 42 cm</p>
     
-    <p class="marks"><span style="--c:#1EBE69"><i></i>unframed, with passe-partout <b>$35</b></span><span style="--c:#17150F"><i></i>framed <b>$55</b></span></p>
+    <div class="buy" data-id="08" data-title="oh god" data-u="35" data-f="55" data-series=""><button type="button" data-kind="u" style="--c:#1EBE69"><i></i>unframed, with passe-partout <b>$35</b><em>add +</em></button><button type="button" data-kind="f" style="--c:#17150F"><i></i>framed <b>$55</b><em>add +</em></button></div>
   </div></li>
 <li class="row"><figure class="art"><img src="img/09_falastine.jpg" alt="palestine" loading="lazy"></figure>
   <div class="label"><span class="num">09</span>
@@ -194,7 +239,7 @@ footer{padding:40px 0 70px;text-align:center;font-size:12px;color:var(--mute);li
     <p class="en">palestine</p>
     <p class="ven">2024 · print 42 × 29.7 cm</p>
     
-    <p class="marks"><span style="--c:#1EBE69"><i></i>unframed, with passe-partout <b>$35</b></span><span style="--c:#17150F"><i></i>framed <b>$55</b></span></p>
+    <div class="buy" data-id="09" data-title="palestine" data-u="35" data-f="55" data-series=""><button type="button" data-kind="u" style="--c:#1EBE69"><i></i>unframed, with passe-partout <b>$35</b><em>add +</em></button><button type="button" data-kind="f" style="--c:#17150F"><i></i>framed <b>$55</b><em>add +</em></button></div>
   </div></li>
 <li class="row"><div class="figs"><figure class="art"><img src="img/10_enta_min_wel_nas_naymin.jpg" alt="collateral feelings" loading="lazy"></figure><figure class="photo"><img src="img/11_mural_painting.jpg" alt="nwaré painting the mural on the wall beirut" loading="lazy"><figcaption>nwaré painting the mural on the wall beirut, 2023</figcaption></figure></div>
   <div class="label"><span class="num">10</span>
@@ -202,7 +247,7 @@ footer{padding:40px 0 70px;text-align:center;font-size:12px;color:var(--mute);li
     <p class="en">collateral feelings</p>
     <p class="ven">2023 · print 78.5 × 40.8 cm</p>
     <p class="desc">designed for the wall beirut mural.</p>
-    <p class="marks"><span style="--c:#1EBE69"><i></i>unframed, with passe-partout <b>$75</b></span><span style="--c:#17150F"><i></i>framed <b>$105</b></span></p>
+    <div class="buy" data-id="10" data-title="collateral feelings (the long mural)" data-u="75" data-f="105" data-series=""><button type="button" data-kind="u" style="--c:#1EBE69"><i></i>unframed, with passe-partout <b>$75</b><em>add +</em></button><button type="button" data-kind="f" style="--c:#17150F"><i></i>framed <b>$105</b><em>add +</em></button></div>
   </div></li>
 </ul></section>
 
@@ -215,6 +260,9 @@ footer{padding:40px 0 70px;text-align:center;font-size:12px;color:var(--mute);li
 
 </div>
 <footer>ghenwa (nwaré) abou fayad · tota, beirut · october 2026<br>music at the opening by fanny (<a href="https://www.instagram.com/fanny.orwrm/">@fanny.orwrm</a>) · prices in US dollars</footer>
+
+<div id="bag"><div class="in"><span class="sum"></span><button type="button" id="bagGo">buy →</button></div></div>
+<div id="sheet" role="dialog" aria-modal="true" aria-label="your selection"><div class="in"></div></div>
 <script>
 const tabs=[...document.querySelectorAll('[role=tab]')],panels=[...document.querySelectorAll('[role=tabpanel]')];
 function show(id,push){if(!panels.some(p=>p.id==='p-'+id))id='statement';
@@ -223,6 +271,82 @@ function show(id,push){if(!panels.some(p=>p.id==='p-'+id))id='statement';
 tabs.forEach(t=>t.addEventListener('click',()=>{show(t.dataset.tab,true);window.scrollTo({top:0})}));
 window.addEventListener('hashchange',()=>show(location.hash.slice(1)));
 show(location.hash.slice(1)||'statement');
+
+// ---------- buying: selection, 7ale bundle, cash or whish
+const WHISH='70093342';
+let sel=[];   // {id,title,kind,price,series}
+try{sel=JSON.parse(localStorage.getItem('tota-sel')||'[]')}catch(e){sel=[]}
+const bag=document.getElementById('bag'),sheet=document.getElementById('sheet');
+function save(){localStorage.setItem('tota-sel',JSON.stringify(sel))}
+function money(n){return '$'+n}
+function priced(){
+  const lines=sel.map(x=>({...x}));let deal=null,total=lines.reduce((a,x)=>a+x.price,0);
+  const s7=lines.filter(x=>x.series==='7ale'&&x.kind==='u');
+  if(s7.length===3){deal={text:'7ale series, all three unframed: $90 instead of $105',save:15}}
+  else if(s7.length===2){deal={text:'7ale series, two unframed: $60 instead of $70',save:10}}
+  if(deal)total-=deal.save;
+  return {lines,deal,total};
+}
+function kindWord(k){return k==='f'?'framed':'unframed'}
+function paint(){
+  document.querySelectorAll('.buy').forEach(b=>{b.querySelectorAll('button').forEach(btn=>{
+    const on=sel.some(x=>x.id===b.dataset.id&&x.kind===btn.dataset.kind);
+    btn.classList.toggle('on',on);btn.querySelector('em').textContent=on?'added ✓':'add +';});});
+  const p=priced();
+  bag.classList.toggle('show',sel.length>0);document.body.classList.toggle('bagged',sel.length>0);
+  bag.querySelector('.sum').innerHTML=sel.length+(sel.length===1?' piece':' pieces')+' · <b>'+money(p.total)+'</b>'+(p.deal?' · 7ale deal':'');
+  save();
+}
+document.querySelectorAll('.buy').forEach(b=>b.addEventListener('click',e=>{
+  const btn=e.target.closest('button');if(!btn)return;
+  const id=b.dataset.id,kind=btn.dataset.kind,i=sel.findIndex(x=>x.id===id);
+  const same=i>=0&&sel[i].kind===kind;
+  if(i>=0)sel.splice(i,1);
+  if(!same)sel.push({id,title:b.dataset.title,kind,price:+(kind==='f'?b.dataset.f:b.dataset.u),series:b.dataset.series});
+  sel.sort((a,c)=>a.id.localeCompare(c.id));paint();
+}));
+let buyer='';
+function close(){sheet.classList.remove('show');document.body.style.overflow=''}
+function open(){sheet.classList.add('show');document.body.style.overflow='hidden';view('list')}
+function esc(t){return String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
+function summary(){const p=priced();return p.lines.map(x=>x.id+' '+x.title+' ('+kindWord(x.kind)+')').join(' + ')+' · total '+money(p.total)}
+function view(v){
+  const p=priced(),box=sheet.querySelector('.in');
+  const head='<div class="head"><h2>your selection</h2><button class="x" type="button" data-a="close">close ×</button></div>';
+  const items=p.lines.map((x,i)=>'<div class="item" style="--c:'+(x.kind==='f'?'#17150F':'#1EBE69')+'"><i></i><span class="t">'+x.id+' · '+esc(x.title)+'<small>'+(x.kind==='f'?'framed':'unframed, with passe-partout')+'</small></span><span class="pr">'+money(x.price)+'</span>'+(v==='list'?'<button class="rm" type="button" data-rm="'+i+'">remove</button>':'')+'</div>').join('')
+    +(p.deal?'<div class="item" style="--c:#1EBE69"><i></i><span class="t deal">'+p.deal.text+'</span><span class="pr deal">−'+money(p.deal.save)+'</span></div>':'')
+    +'<div class="total"><span>total</span><span>'+money(p.total)+'</span></div>';
+  if(!sel.length){box.innerHTML=head+'<p>nothing selected yet. tap “add +” under a piece.</p>';return}
+  if(v==='list'){
+    box.innerHTML=head+items+'<label for="nm">your name</label><input id="nm" autocomplete="name" value="'+esc(buyer)+'" placeholder="first and last name">'
+      +'<div class="pay"><button type="button" data-a="cash">pay cash</button><button type="button" class="alt" data-a="whish">pay by whish</button></div>'
+      +'<p class="hint">prices in US dollars. the framed copies on the wall are one of each; anything else is printed to order.</p><button class="back" type="button" data-a="clear">clear my selection</button>';
+    const nm=box.querySelector('#nm');nm.addEventListener('input',()=>{buyer=nm.value});
+  }
+  if(v==='cash'){
+    box.innerHTML=head+'<p class="show-crew">show this screen to the tota crew at the bar.</p>'
+      +'<p>they take the cash and write down your order.</p>'+items
+      +(buyer?'<p>name: <b>'+esc(buyer)+'</b></p>':'')+'<button class="back" type="button" data-a="list">← back</button>';
+  }
+  if(v==='whish'){
+    const note=(buyer?buyer:'[your name]')+' · '+summary();
+    box.innerHTML=head+items
+      +'<div class="step"><span class="n">1</span><p>copy the whish number</p><div class="copy"><code>'+WHISH+'</code><button type="button" data-copy="'+WHISH+'">copy</button></div></div>'
+      +'<div class="step"><span class="n">2</span><p>copy the transfer note: your name, the pieces, framed or unframed</p><div class="copy"><code>'+esc(note)+'</code><button type="button" data-copy="'+esc(note)+'">copy</button></div>'+(buyer?'':'<p class="hint">add your name on the previous screen, or type it in the note.</p>')+'</div>'
+      +'<div class="step"><span class="n">3</span><p>open your whish app, send <b>'+money(p.total)+'</b> to '+WHISH+' and paste the note.</p></div>'
+      +'<div class="warn"><b>4. show your whish confirmation to the tota crew at the bar</b>, so they can write down your order. without this step your order is not tracked.</div>'
+      +'<button class="back" type="button" data-a="list">← back</button>';
+  }
+}
+sheet.addEventListener('click',e=>{
+  const a=e.target.closest('[data-a]'),rm=e.target.closest('[data-rm]'),cp=e.target.closest('[data-copy]');
+  if(rm){sel.splice(+rm.dataset.rm,1);paint();view('list');return}
+  if(cp){const t=cp.dataset.copy;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).catch(()=>{const r=document.createRange();r.selectNodeContents(cp.previousElementSibling);const s=getSelection();s.removeAllRanges();s.addRange(r);document.execCommand('copy')});cp.textContent='copied ✓';cp.classList.add('done');setTimeout(()=>{cp.textContent='copy';cp.classList.remove('done')},2200);return}
+  if(!a)return;
+  if(a.dataset.a==='close')close();else if(a.dataset.a==='clear'){sel=[];buyer='';paint();close();}else view(a.dataset.a);
+});
+document.getElementById('bagGo').addEventListener('click',open);
+paint();
 </script>
 </body>
 </html>
