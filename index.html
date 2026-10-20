@@ -124,6 +124,11 @@ body.bagged{padding-bottom:70px}
 #sheet .copy button.done{background:#1EBE69}
 #sheet .show-crew{font-size:22px;line-height:1.35;font-weight:700;margin:14px 0}
 #sheet .warn{border-left:4px solid #F1503C;padding:10px 12px;background:var(--block);font-size:15px;margin-top:16px}
+#sheet .crew{background:var(--ink);color:#fff;padding:22px 20px;margin:18px 0}
+#sheet .crew small{display:block;font-size:12px;opacity:.7;margin-bottom:6px;text-transform:uppercase;letter-spacing:.06em}
+#sheet .crew b{display:block;font-size:26px;line-height:1.25;font-weight:800}
+#sheet .crew b::before{content:"";display:inline-block;width:12px;height:12px;background:#F1503C;margin-right:10px;vertical-align:4px}
+#sheet .crew span{display:block;font-size:16px;line-height:1.45;margin-top:10px}
 #sheet .back{font:13px 'Libre Franklin',sans-serif;background:none;border:0;color:var(--sub);text-decoration:underline;cursor:pointer;padding:0;margin-top:18px}
 @media (max-width:1240px){.wrap{padding:0 20px}}
 @media (max-width:700px){
@@ -174,12 +179,15 @@ body.bagged{padding-bottom:70px}
 </ul></section>
 
 <section id="p-works" role="tabpanel" hidden><ul>
+<li class="text small deal-strip"><div style="--c:#1EBE69"><span class="tag"><i></i>deal</span><p><b>any two unframed prints for $60, any three for $90.</b> add them and the price adjusts by itself. framed pieces and the long mural stay at their own price.</p></div>
+  <div class="ar" lang="ar" style="--c:#1EBE69"><span class="tag"><i></i>عرض</span><p><b>أيّ عملين من دون إطار بـ 60$، وأيّ ثلاثة بـ 90$.</b> أضيفوها ويتعدّل السعر وحده. الأعمال المؤطّرة والجدارية الطويلة بسعرها.</p></div></li>
+
 <li class="row"><figure class="art"><img src="img/01_t3ebet_men_7ale.jpg" alt="tired of myself" loading="lazy"></figure>
   <div class="label"><span class="num">01</span>
     <h3 class="ar" lang="ar">تعبت من حالي</h3>
     <p class="en">tired of myself</p>
     <p class="ven">2024 · print 29.7 × 42 cm</p>
-    <p class="desc">part of the 7ale series: <b>any two for $60, all three for $90</b> (unframed). add them and the price adjusts by itself.</p>
+    
     <div class="buy" data-id="01" data-title="tired of myself" data-u="35" data-f="55" data-series="7ale"><button type="button" data-kind="u" style="--c:#1EBE69"><i></i>unframed, with passe-partout <b>$35</b><em>add +</em></button><button type="button" data-kind="f" style="--c:#17150F"><i></i>framed <b>$55</b><em>add +</em></button></div>
   </div></li>
 <li class="row"><figure class="art"><img src="img/02_shta2et_la_7ale.jpg" alt="i missed myself" loading="lazy"></figure>
@@ -187,7 +195,7 @@ body.bagged{padding-bottom:70px}
     <h3 class="ar" lang="ar">اشتقت لحالي</h3>
     <p class="en">i missed myself</p>
     <p class="ven">2025 · print 29.7 × 42 cm</p>
-    <p class="desc">part of the 7ale series: <b>any two for $60, all three for $90</b> (unframed). add them and the price adjusts by itself.</p>
+    
     <div class="buy" data-id="02" data-title="i missed myself" data-u="35" data-f="55" data-series="7ale"><button type="button" data-kind="u" style="--c:#1EBE69"><i></i>unframed, with passe-partout <b>$35</b><em>add +</em></button><button type="button" data-kind="f" style="--c:#17150F"><i></i>framed <b>$55</b><em>add +</em></button></div>
   </div></li>
 <li class="row"><figure class="art"><img src="img/03_nbasatet_men_7ale.jpg" alt="pleased with myself" loading="lazy"></figure>
@@ -195,7 +203,7 @@ body.bagged{padding-bottom:70px}
     <h3 class="ar" lang="ar">انبسطت من حالي</h3>
     <p class="en">pleased with myself</p>
     <p class="ven">2026 · print 29.7 × 42 cm</p>
-    <p class="desc">part of the 7ale series: <b>any two for $60, all three for $90</b> (unframed). add them and the price adjusts by itself.</p>
+    
     <div class="buy" data-id="03" data-title="pleased with myself" data-u="35" data-f="55" data-series="7ale"><button type="button" data-kind="u" style="--c:#1EBE69"><i></i>unframed, with passe-partout <b>$35</b><em>add +</em></button><button type="button" data-kind="f" style="--c:#17150F"><i></i>framed <b>$55</b><em>add +</em></button></div>
   </div></li>
 <li class="row"><figure class="art"><img src="img/04_butterfly_earfly_1.jpg" alt="i wonder, can our voice be heard over the buzz of the drone?" loading="lazy"></figure>
@@ -286,9 +294,8 @@ function save(){localStorage.setItem('tota-sel',JSON.stringify(sel))}
 function money(n){return '$'+n}
 function priced(){
   const lines=sel.map(x=>({...x}));let deal=null,total=lines.reduce((a,x)=>a+x.price,0);
-  const s7=lines.filter(x=>x.series==='7ale'&&x.kind==='u');
-  if(s7.length===3){deal={text:'7ale series, all three unframed: $90 instead of $105',save:15}}
-  else if(s7.length===2){deal={text:'7ale series, two unframed: $60 instead of $70',save:10}}
+  const el=lines.filter(x=>x.kind==='u'&&x.id!=='10'),n=el.length;
+  if(n>=2){const full=n*35,dt=Math.floor(n/3)*90+(n%3===2?60:n%3===1?35:0);deal={text:n+' unframed prints: $'+dt+' instead of $'+full,save:full-dt}}
   if(deal)total-=deal.save;
   return {lines,deal,total};
 }
@@ -299,7 +306,7 @@ function paint(){
     btn.classList.toggle('on',on);btn.querySelector('em').textContent=on?'added ✓':'add +';});});
   const p=priced();
   bag.classList.toggle('show',sel.length>0);document.body.classList.toggle('bagged',sel.length>0);
-  bag.querySelector('.sum').innerHTML=sel.length+(sel.length===1?' piece':' pieces')+' · <b>'+money(p.total)+'</b>'+(p.deal?' · 7ale deal':'');
+  bag.querySelector('.sum').innerHTML=sel.length+(sel.length===1?' piece':' pieces')+' · <b>'+money(p.total)+'</b>'+(p.deal?' · deal applied':'');
   save();
 }
 document.querySelectorAll('.buy').forEach(b=>b.addEventListener('click',e=>{
@@ -329,8 +336,7 @@ function view(v){
     const nm=box.querySelector('#nm');nm.addEventListener('input',()=>{buyer=nm.value});
   }
   if(v==='cash'){
-    box.innerHTML=head+'<p class="show-crew">show this screen to the tota crew at the bar.</p>'
-      +'<p>they take the cash and write down your order.</p>'+items
+    box.innerHTML=head+'<div class="crew"><b>show this screen to the tota crew at the bar.</b><span>pay the total in cash. the crew writes your order on the sheet, with their own name.</span></div>'+items
       +(buyer?'<p>name: <b>'+esc(buyer)+'</b></p>':'')+'<button class="back" type="button" data-a="list">← back</button>';
   }
   if(v==='whish'){
@@ -339,7 +345,7 @@ function view(v){
       +'<div class="step"><span class="n">1</span><p>copy the whish number</p><div class="copy"><code>'+WHISH+'</code><button type="button" data-copy="'+WHISH+'">copy</button></div></div>'
       +'<div class="step"><span class="n">2</span><p>copy the transfer note: your name, the pieces, framed or unframed</p><div class="copy"><code>'+esc(note)+'</code><button type="button" data-copy="'+esc(note)+'">copy</button></div>'+(buyer?'':'<p class="hint">add your name on the previous screen, or type it in the note.</p>')+'</div>'
       +'<div class="step"><span class="n">3</span><p>open your whish app, send <b>'+money(p.total)+'</b> to '+WHISH+' and paste the note.</p></div>'
-      +'<div class="warn"><b>4. show your whish confirmation to the tota crew at the bar</b>, so they can write down your order. without this step your order is not tracked.</div>'
+      +'<div class="crew"><small>4 · last step</small><b>show your whish confirmation to the tota crew at the bar.</b><span>the crew writes your order on the sheet, with their own name. without this step your order is not tracked.</span></div>'
       +'<button class="back" type="button" data-a="list">← back</button>';
   }
 }
