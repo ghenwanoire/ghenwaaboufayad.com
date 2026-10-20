@@ -369,7 +369,7 @@ function mock(f,k){const b=f.closest('.row').querySelector('.buy'),img=f.querySe
   if(!f.dataset.src)f.dataset.src=img.getAttribute('src');
   const base=f.dataset.src.split('/').pop().replace('.jpg','');
   f.dataset.k=k;f.classList.add('mock');
-  f.querySelector('.peek').textContent=(k==='f'?'framed · $'+b.dataset.f+' · tap: poster':'poster · $'+b.dataset.u+' · tap: framed');
+  f.title=(k==='f'?'framed · $'+b.dataset.f+' · tap to see the poster':'poster · $'+b.dataset.u+' · tap to see it framed');
   img.src='img/view/'+base+(k==='f'?'_framed':'_poster')+'.jpg';
   new Image().src='img/view/'+base+(k==='f'?'_poster':'_framed')+'.jpg';}
 document.querySelectorAll('figure.art').forEach(f=>{const go=()=>mock(f,f.dataset.k==='f'?'u':'f');
