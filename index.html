@@ -24,12 +24,17 @@ a{color:inherit}
 .bar .m{font-weight:700;font-size:18px;letter-spacing:-.01em;text-align:center}
 .bar .m .ar{font-weight:600;margin-left:8px}
 .bar .r{text-align:right;color:var(--mute)}
-.tabs{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 16px;padding:0 0 10px}
-.tabs h4{margin:0 8px 0 0;font-size:11px;font-weight:400;color:var(--mute);min-width:58px}
-.tabs button{font:inherit;background:none;border:0;padding:2px 0;cursor:pointer;color:var(--mute);display:inline-flex;align-items:baseline;gap:6px}
+.tabs{display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:2px 0 14px}
+.tabs h4{margin:0 6px 0 0;font-size:11px;font-weight:400;color:var(--mute)}
+.tabs button{font:500 13px/1 'Libre Franklin',sans-serif;background:var(--block);border:0;padding:11px 14px;cursor:pointer;color:var(--ink);display:inline-flex;align-items:center;gap:8px;text-decoration:underline;text-decoration-color:var(--line);text-underline-offset:4px;transition:background .12s}
+.tabs button .ar{font-size:12px;color:var(--sub);text-decoration:none}
+.tabs button b{font-weight:400;font-size:16px;line-height:0;color:var(--mute);transition:transform .12s}
 .tabs button i{width:7px;height:7px;background:var(--c);display:inline-block;flex:none}
-.tabs button:hover{color:var(--ink)}
-.tabs button[aria-selected=true]{color:var(--ink);font-weight:700;text-transform:uppercase;letter-spacing:.02em}
+.tabs button:hover{background:#E9E9E9}.tabs button:hover b{transform:translateX(3px);color:var(--ink)}
+.tabs button:active{transform:scale(.98)}
+.tabs button[aria-selected=true]{background:var(--ink);color:#fff;font-weight:700;text-transform:uppercase;letter-spacing:.02em;text-decoration:none}
+.tabs button[aria-selected=true] .ar,.tabs button[aria-selected=true] b{color:#fff}
+.tabs button[aria-selected=true] i{outline:1px solid #fff}
 section[hidden]{display:none}
 /* ruled strips */
 ul{list-style:none;margin:0;padding:0 0 60px}
@@ -74,7 +79,7 @@ footer{padding:40px 0 70px;text-align:center;font-size:12px;color:var(--mute);li
 @media (max-width:1240px){.wrap{padding:0 20px}}
 @media (max-width:700px){
  .top{position:static}.bar{grid-template-columns:1fr;text-align:center;gap:6px}.bar .l,.bar .r{text-align:center}
- .tabs{position:sticky;top:0}
+ .tabs{position:sticky;top:0;background:var(--bg);padding-top:10px}.tabs button{padding:10px 12px}
  .row{grid-template-columns:1fr;min-height:0}.label{padding:22px 16px 18px}
  .text{grid-template-columns:1fr}.text>div{padding:30px 16px 22px}.text>div+div{border-left:0;border-top:1px solid var(--line)}
  .links a{padding:22px 16px}
@@ -84,11 +89,11 @@ footer{padding:40px 0 70px;text-align:center;font-size:12px;color:var(--mute);li
 <body>
 <div class="top"><div class="wrap">
  <div class="bar"><div class="l"><b>10</b> works · tota, beirut</div><div class="m">collateral feelings<span class="ar" lang="ar">إنت مين والناس نايمين؟</span></div><div class="r">nwaré · opening 21 october 2026, 8 pm</div></div>
- <div class="tabs" role="tablist"><h4>page</h4>
-  <button role="tab" data-tab="statement" style="--c:#F1503C"><i></i>statement · النص</button>
-  <button role="tab" data-tab="works" style="--c:#FF920A"><i></i>works &amp; prices · الأعمال</button>
-  <button role="tab" data-tab="reel" style="--c:#2F6BFF"><i></i>reel</button>
-  <button role="tab" data-tab="instagram" style="--c:#1EBE69"><i></i>instagram</button>
+ <div class="tabs" role="tablist"><h4>tap to</h4>
+  <button role="tab" data-tab="statement" style="--c:#F1503C"><i></i>read the statement<span class="ar" lang="ar">النص</span><b>→</b></button>
+  <button role="tab" data-tab="works" style="--c:#FF920A"><i></i>see the works &amp; prices<span class="ar" lang="ar">الأعمال والأسعار</span><b>→</b></button>
+  <button role="tab" data-tab="reel" style="--c:#2F6BFF"><i></i>watch the reel<b>→</b></button>
+  <button role="tab" data-tab="instagram" style="--c:#1EBE69"><i></i>follow on instagram<b>→</b></button>
  </div>
 </div></div>
 <div class="wrap">
@@ -188,8 +193,8 @@ footer{padding:40px 0 70px;text-align:center;font-size:12px;color:var(--mute);li
 <section id="p-reel" role="tabpanel" hidden><ul><li class="row reel" style="grid-template-columns:1fr"><div class="frame"><iframe src="https://player.vimeo.com/video/1200835707?dnt=1&amp;title=0&amp;byline=0&amp;portrait=0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen title="nwaré reel" loading="lazy"></iframe></div></li></ul></section>
 
 <section id="p-instagram" role="tabpanel" hidden><ul class="links">
- <li class="row"><a href="https://www.instagram.com/ghenwa_noire/" style="--c:#1EBE69"><i></i>@ghenwa_noire<span>instagram</span></a></li>
- <li class="row"><a href="https://www.instagram.com/ghenwa_aboufayad/" style="--c:#2F6BFF"><i></i>@ghenwa_aboufayad<span>instagram</span></a></li>
+ <li class="row"><a href="https://www.instagram.com/ghenwa_noire/" style="--c:#1EBE69"><i></i>@ghenwa_noire<span>music production, sound design &amp; performance →</span></a></li>
+ <li class="row"><a href="https://www.instagram.com/ghenwa_aboufayad/" style="--c:#2F6BFF"><i></i>@ghenwa_aboufayad<span>illustration →</span></a></li>
 </ul></section>
 
 </div>
