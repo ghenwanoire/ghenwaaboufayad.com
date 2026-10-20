@@ -90,6 +90,23 @@ footer{padding:40px 0 70px;text-align:center;font-size:12px;color:var(--mute);li
 .buy button:hover{background:#E9E9E9}
 .buy button.on{background:var(--ink);color:#fff}.buy button.on em{color:#fff}.buy button.on i{outline:1px solid #fff}
 .desc b{font-weight:700}
+figure.art{cursor:zoom-in}
+figure.art .peek{position:absolute;right:0;bottom:0;z-index:2;background:var(--ink);color:#fff;font-size:12px;font-weight:600;padding:8px 10px}
+figure.art:hover .peek{background:#F1503C}
+#view{position:fixed;inset:0;z-index:40;background:#ECEAE5;display:none;flex-direction:column}
+#view.show{display:flex}
+#view .vh{display:flex;align-items:center;gap:10px;padding:14px 20px;background:var(--bg);border-bottom:1px solid var(--line)}
+#view .vh b{font-size:15px;flex:1}
+#view .vh button{font:500 13px 'Libre Franklin',sans-serif;background:var(--block);border:0;padding:10px 12px;cursor:pointer}
+#view .pic{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;padding:10px}
+#view .pic img{max-width:100%;max-height:100%;object-fit:contain}
+#view .vf{background:var(--bg);border-top:1px solid var(--line);padding:12px 20px 18px}
+#view .tog{display:grid;grid-template-columns:1fr 1fr;gap:6px}
+#view .tog button{font:600 14px/1.2 'Libre Franklin',sans-serif;border:0;padding:13px 10px;cursor:pointer;background:var(--block);color:var(--ink)}
+#view .tog button.on{background:var(--ink);color:#fff}
+#view .tog button small{display:block;font-weight:400;font-size:12px;opacity:.75;margin-top:3px}
+#view .addv{margin-top:8px;width:100%;font:700 14px 'Libre Franklin',sans-serif;border:0;padding:14px;cursor:pointer;background:#1EBE69;color:#fff;text-transform:uppercase;letter-spacing:.02em}
+#view .addv.in{background:var(--block);color:var(--ink)}
 #bag{position:fixed;left:0;right:0;bottom:0;z-index:20;background:var(--ink);color:#fff;display:none}
 #bag.show{display:block}
 #bag .in{max-width:1200px;margin:0 auto;padding:14px 20px;display:flex;align-items:center;gap:14px}
@@ -179,9 +196,12 @@ body.bagged{padding-bottom:70px}
 </ul></section>
 
 <section id="p-works" role="tabpanel" hidden><ul>
+<li class="text small deal-strip"><div style="--c:#1EBE69"><span class="tag"><i></i>deal</span><p><b>any two posters for $55, any three for $80.</b> add them and the price adjusts by itself. framed pieces and the long mural stay at their own price.</p></div>
+  <div class="ar" lang="ar" style="--c:#1EBE69"><span class="tag"><i></i>عرض</span><p><b>أيّ ملصقين بـ 55$، وأيّ ثلاثة بـ 80$.</b> أضيفوها ويتعدّل السعر وحده. الأعمال المؤطّرة والجدارية الطويلة بسعرها.</p></div></li>
 
 
-<li class="row"><figure class="art"><img src="img/01_t3ebet_men_7ale.jpg" alt="tired of myself" loading="lazy"></figure>
+
+<li class="row"><figure class="art" tabindex="0" role="button" aria-label="see it as a poster or framed"><span class="peek">see it framed or as a poster ↗</span><img src="img/01_t3ebet_men_7ale.jpg" alt="tired of myself" loading="lazy"></figure>
   <div class="label"><span class="num">01</span>
     <h3 class="ar" lang="ar">تعبت من حالي</h3>
     <p class="en">tired of myself</p>
@@ -189,7 +209,7 @@ body.bagged{padding-bottom:70px}
     
     <div class="buy" data-id="01" data-title="tired of myself" data-u="30" data-f="55" data-series="7ale"><button type="button" data-kind="u" style="--c:#1EBE69"><i></i>poster, unframed <b>$30</b><em>add +</em></button><button type="button" data-kind="f" style="--c:#17150F"><i></i>framed, with passe-partout <b>$55</b><em>add +</em></button></div>
   </div></li>
-<li class="row"><figure class="art"><img src="img/02_shta2et_la_7ale.jpg" alt="i missed myself" loading="lazy"></figure>
+<li class="row"><figure class="art" tabindex="0" role="button" aria-label="see it as a poster or framed"><span class="peek">see it framed or as a poster ↗</span><img src="img/02_shta2et_la_7ale.jpg" alt="i missed myself" loading="lazy"></figure>
   <div class="label"><span class="num">02</span>
     <h3 class="ar" lang="ar">اشتقت لحالي</h3>
     <p class="en">i missed myself</p>
@@ -197,7 +217,7 @@ body.bagged{padding-bottom:70px}
     
     <div class="buy" data-id="02" data-title="i missed myself" data-u="30" data-f="55" data-series="7ale"><button type="button" data-kind="u" style="--c:#1EBE69"><i></i>poster, unframed <b>$30</b><em>add +</em></button><button type="button" data-kind="f" style="--c:#17150F"><i></i>framed, with passe-partout <b>$55</b><em>add +</em></button></div>
   </div></li>
-<li class="row"><figure class="art"><img src="img/03_nbasatet_men_7ale.jpg" alt="pleased with myself" loading="lazy"></figure>
+<li class="row"><figure class="art" tabindex="0" role="button" aria-label="see it as a poster or framed"><span class="peek">see it framed or as a poster ↗</span><img src="img/03_nbasatet_men_7ale.jpg" alt="pleased with myself" loading="lazy"></figure>
   <div class="label"><span class="num">03</span>
     <h3 class="ar" lang="ar">انبسطت من حالي</h3>
     <p class="en">pleased with myself</p>
@@ -205,7 +225,7 @@ body.bagged{padding-bottom:70px}
     
     <div class="buy" data-id="03" data-title="pleased with myself" data-u="30" data-f="55" data-series="7ale"><button type="button" data-kind="u" style="--c:#1EBE69"><i></i>poster, unframed <b>$30</b><em>add +</em></button><button type="button" data-kind="f" style="--c:#17150F"><i></i>framed, with passe-partout <b>$55</b><em>add +</em></button></div>
   </div></li>
-<li class="row"><figure class="art"><img src="img/04_butterfly_earfly_1.jpg" alt="i wonder, can our voice be heard over the buzz of the drone?" loading="lazy"></figure>
+<li class="row"><figure class="art" tabindex="0" role="button" aria-label="see it as a poster or framed"><span class="peek">see it framed or as a poster ↗</span><img src="img/04_butterfly_earfly_1.jpg" alt="i wonder, can our voice be heard over the buzz of the drone?" loading="lazy"></figure>
   <div class="label"><span class="num">04</span>
     <h3 class="ar" lang="ar">هل يا ترى صوتنا مسموع فوق صوت الزنّانة؟</h3>
     <p class="en">i wonder, can our voice be heard over the buzz of the drone?</p>
@@ -213,7 +233,7 @@ body.bagged{padding-bottom:70px}
     
     <div class="buy" data-id="04" data-title="i wonder, can our voice be heard over the buzz of the drone?" data-u="30" data-f="55" data-series=""><button type="button" data-kind="u" style="--c:#1EBE69"><i></i>poster, unframed <b>$30</b><em>add +</em></button><button type="button" data-kind="f" style="--c:#17150F"><i></i>framed, with passe-partout <b>$55</b><em>add +</em></button></div>
   </div></li>
-<li class="row"><figure class="art"><img src="img/05_butterfly_earfly_2.jpg" alt="our voice is heard over the buzz of the drone" loading="lazy"></figure>
+<li class="row"><figure class="art" tabindex="0" role="button" aria-label="see it as a poster or framed"><span class="peek">see it framed or as a poster ↗</span><img src="img/05_butterfly_earfly_2.jpg" alt="our voice is heard over the buzz of the drone" loading="lazy"></figure>
   <div class="label"><span class="num">05</span>
     <h3 class="ar" lang="ar">صوتنا مسموع فوق صوت الزنّانة</h3>
     <p class="en">our voice is heard over the buzz of the drone</p>
@@ -221,7 +241,7 @@ body.bagged{padding-bottom:70px}
     
     <div class="buy" data-id="05" data-title="our voice is heard over the buzz of the drone" data-u="30" data-f="55" data-series=""><button type="button" data-kind="u" style="--c:#1EBE69"><i></i>poster, unframed <b>$30</b><em>add +</em></button><button type="button" data-kind="f" style="--c:#17150F"><i></i>framed, with passe-partout <b>$55</b><em>add +</em></button></div>
   </div></li>
-<li class="row"><figure class="art"><img src="img/06_allahou_akbar.jpg" alt="god is greater" loading="lazy"></figure>
+<li class="row"><figure class="art" tabindex="0" role="button" aria-label="see it as a poster or framed"><span class="peek">see it framed or as a poster ↗</span><img src="img/06_allahou_akbar.jpg" alt="god is greater" loading="lazy"></figure>
   <div class="label"><span class="num">06</span>
     <h3 class="ar" lang="ar">الله أكبر</h3>
     <p class="en">god is greater</p>
@@ -229,7 +249,7 @@ body.bagged{padding-bottom:70px}
     
     <div class="buy" data-id="06" data-title="god is greater" data-u="30" data-f="55" data-series=""><button type="button" data-kind="u" style="--c:#1EBE69"><i></i>poster, unframed <b>$30</b><em>add +</em></button><button type="button" data-kind="f" style="--c:#17150F"><i></i>framed, with passe-partout <b>$55</b><em>add +</em></button></div>
   </div></li>
-<li class="row"><figure class="art"><img src="img/07_qahr.jpg" alt="qahr" loading="lazy"></figure>
+<li class="row"><figure class="art" tabindex="0" role="button" aria-label="see it as a poster or framed"><span class="peek">see it framed or as a poster ↗</span><img src="img/07_qahr.jpg" alt="qahr" loading="lazy"></figure>
   <div class="label"><span class="num">07</span>
     <h3 class="ar" lang="ar">قهر</h3>
     <p class="en">qahr</p>
@@ -237,7 +257,7 @@ body.bagged{padding-bottom:70px}
     <p class="desc quote">“There is no English equivalent to the Arabic word qaher قهر. The dictionary says “anger” but it’s not. It is when you take anger, place it on a low fire, add injustice, oppression, racism, dehumanization to it, and leave it to cook slowly for a century. And then you try to say it but no one hears you. So it sits in your heart. And settles in your cells. And it becomes your genetic imprint. And then moves through generations. And one day, you find yourself unable to breathe. It washes over you and demands to break out of you. You weep. And the cycle repeats.”<br><br>as khadija muhaisen dajani described it.</p>
     <div class="buy" data-id="07" data-title="qahr" data-u="30" data-f="55" data-series=""><button type="button" data-kind="u" style="--c:#1EBE69"><i></i>poster, unframed <b>$30</b><em>add +</em></button><button type="button" data-kind="f" style="--c:#17150F"><i></i>framed, with passe-partout <b>$55</b><em>add +</em></button></div>
   </div></li>
-<li class="row"><figure class="art"><img src="img/08_ya_allah.jpg" alt="oh god" loading="lazy"></figure>
+<li class="row"><figure class="art" tabindex="0" role="button" aria-label="see it as a poster or framed"><span class="peek">see it framed or as a poster ↗</span><img src="img/08_ya_allah.jpg" alt="oh god" loading="lazy"></figure>
   <div class="label"><span class="num">08</span>
     <h3 class="ar" lang="ar">يا الله</h3>
     <p class="en">oh god</p>
@@ -245,7 +265,7 @@ body.bagged{padding-bottom:70px}
     
     <div class="buy" data-id="08" data-title="oh god" data-u="30" data-f="55" data-series=""><button type="button" data-kind="u" style="--c:#1EBE69"><i></i>poster, unframed <b>$30</b><em>add +</em></button><button type="button" data-kind="f" style="--c:#17150F"><i></i>framed, with passe-partout <b>$55</b><em>add +</em></button></div>
   </div></li>
-<li class="row"><figure class="art"><img src="img/09_falastine.jpg" alt="palestine" loading="lazy"></figure>
+<li class="row"><figure class="art" tabindex="0" role="button" aria-label="see it as a poster or framed"><span class="peek">see it framed or as a poster ↗</span><img src="img/09_falastine.jpg" alt="palestine" loading="lazy"></figure>
   <div class="label"><span class="num">09</span>
     <h3 class="ar" lang="ar">فلسطين</h3>
     <p class="en">palestine</p>
@@ -253,7 +273,7 @@ body.bagged{padding-bottom:70px}
     
     <div class="buy" data-id="09" data-title="palestine" data-u="30" data-f="55" data-series=""><button type="button" data-kind="u" style="--c:#1EBE69"><i></i>poster, unframed <b>$30</b><em>add +</em></button><button type="button" data-kind="f" style="--c:#17150F"><i></i>framed, with passe-partout <b>$55</b><em>add +</em></button></div>
   </div></li>
-<li class="row"><div class="figs"><figure class="art"><img src="img/10_enta_min_wel_nas_naymin.jpg" alt="collateral feelings" loading="lazy"></figure><figure class="photo"><img src="img/11_mural_painting.jpg" alt="nwaré painting the mural on the wall beirut" loading="lazy"><figcaption>nwaré painting the mural on the wall beirut, 2023</figcaption></figure></div>
+<li class="row"><div class="figs"><figure class="art" tabindex="0" role="button" aria-label="see it as a poster or framed"><span class="peek">see it framed or as a poster ↗</span><img src="img/10_enta_min_wel_nas_naymin.jpg" alt="collateral feelings" loading="lazy"></figure><figure class="photo"><img src="img/11_mural_painting.jpg" alt="nwaré painting the mural on the wall beirut" loading="lazy"><figcaption>nwaré painting the mural on the wall beirut, 2023</figcaption></figure></div>
   <div class="label"><span class="num">10</span>
     <h3 class="ar" lang="ar">إنت مين والناس نايمين؟</h3>
     <p class="en">collateral feelings</p>
@@ -273,6 +293,7 @@ body.bagged{padding-bottom:70px}
 </div>
 <footer>ghenwa (nwaré) abou fayad · tota, beirut · october 2026<br>music at the opening by fanny (<a href="https://www.instagram.com/fanny.orwrm/">@fanny.orwrm</a>) · prices in US dollars</footer>
 
+<div id="view" role="dialog" aria-modal="true" aria-label="poster or framed"><div class="vh"><b></b><button type="button" data-v="close">close ×</button></div><div class="pic"><img alt=""></div><div class="vf"><div class="tog"><button type="button" data-k="u">poster<small></small></button><button type="button" data-k="f">framed<small></small></button></div><button type="button" class="addv"></button></div></div>
 <div id="bag"><div class="in"><span class="sum"></span><button type="button" id="bagGo">buy →</button></div></div>
 <div id="sheet" role="dialog" aria-modal="true" aria-label="your selection"><div class="in"></div></div>
 <script>
@@ -294,7 +315,7 @@ function money(n){return '$'+n}
 function priced(){
   const lines=sel.map(x=>({...x}));let deal=null,total=lines.reduce((a,x)=>a+x.price,0);
   const el=lines.filter(x=>x.kind==='u'&&x.id!=='10'),n=el.length;
-  // deal: off for now, waiting for ghenwa's new deal prices for posters
+  if(n>=2){const full=n*30,dt=Math.floor(n/3)*80+(n%3===2?55:n%3===1?30:0);deal={text:n+' posters: $'+dt+' instead of $'+full,save:full-dt}}
   if(deal)total-=deal.save;
   return {lines,deal,total};
 }
@@ -357,6 +378,22 @@ sheet.addEventListener('click',e=>{
 });
 document.getElementById('bagGo').addEventListener('click',open);
 paint();
+
+// ---------- see a piece as a poster or framed
+const vw=document.getElementById('view');let vb=null,vk='f';
+function vpaint(){const id=vb.dataset.id,img=vb.closest('.row').querySelector('figure.art img').getAttribute('src').split('/').pop().replace('.jpg','');
+  vw.querySelector('.pic img').src='img/view/'+img+(vk==='f'?'_framed':'_poster')+'.jpg';
+  vw.querySelectorAll('.tog button').forEach(b=>b.classList.toggle('on',b.dataset.k===vk));
+  vw.querySelector('[data-k="u"] small').textContent='unframed, no passe-partout · $'+vb.dataset.u;
+  vw.querySelector('[data-k="f"] small').textContent='with passe-partout · $'+vb.dataset.f;
+  const has=sel.some(x=>x.id===id&&x.kind===vk);const ad=vw.querySelector('.addv');
+  ad.classList.toggle('in',has);ad.textContent=has?'added ✓ · tap to remove':'add the '+(vk==='f'?'framed piece':'poster')+' · $'+(vk==='f'?vb.dataset.f:vb.dataset.u);}
+function vopen(row){vb=row.querySelector('.buy');vk='f';vw.querySelector('.vh b').textContent=vb.dataset.id+' · '+vb.dataset.title;vw.classList.add('show');document.body.style.overflow='hidden';vpaint();}
+document.querySelectorAll('figure.art').forEach(f=>{const go=()=>vopen(f.closest('.row'));f.addEventListener('click',go);f.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();go()}})});
+vw.addEventListener('click',e=>{const t=e.target.closest('button');if(!t)return;
+  if(t.dataset.v==='close'){vw.classList.remove('show');document.body.style.overflow='';return}
+  if(t.dataset.k){vk=t.dataset.k;vpaint();return}
+  if(t.classList.contains('addv')){vb.querySelector('button[data-kind="'+vk+'"]').click();vpaint();}});
 </script>
 </body>
 </html>
