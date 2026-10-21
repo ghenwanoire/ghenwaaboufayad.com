@@ -328,7 +328,7 @@ document.querySelectorAll('.buy').forEach(b=>b.addEventListener('click',e=>{
   sel.sort((a,c)=>a.id.localeCompare(c.id));paint();
 }));
 let buyer='',bEmail='',bPhone='',orderNo='';
-const ORDERS='https://script.google.com/macros/s/AKfycbzIlcIMI8RSN8mziwdTem1bPR7asI2syb9MTRGlixFsMVz2gpi2KNWYOF7Mf2Ppr9EN/exec';
+const ORDERS='https://script.google.com/macros/s/AKfycbx0RVO5QoGXqZaWFoauuYZ-uebTgPeOg_DXprx5KSAJokJVo-G-K-F3dt65pQfW4oc5/exec';
 function close(){sheet.classList.remove('show');document.body.style.overflow=''}
 function open(){sheet.classList.add('show');document.body.style.overflow='hidden';view('list')}
 function esc(t){return String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
@@ -344,6 +344,7 @@ function view(v){
     box.innerHTML=head+items+'<label for="nm">your name</label><input id="nm" autocomplete="name" value="'+esc(buyer)+'" placeholder="first and last name">'
       +'<label for="em">your email</label><input id="em" type="email" autocomplete="email" inputmode="email" value="'+esc(bEmail)+'" placeholder="you@example.com">'
       +'<label for="ph">your phone</label><input id="ph" type="tel" autocomplete="tel" inputmode="tel" value="'+esc(bPhone)+'" placeholder="+961 …">'
+      +'<input id="website" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0">'
       +'<p class="hint">you get an email confirming your order. your details are only used for this order.</p><p class="err" hidden></p>'
       +'<div class="pay"><button type="button" data-a="cash">pay cash</button><button type="button" class="alt" data-a="whish">pay by whish</button></div>'
       +'<p class="hint">prices in US dollars. the framed copies on the wall are one of each; anything else is printed to order.</p><button class="back" type="button" data-a="clear">clear my selection</button>';
@@ -381,7 +382,11 @@ function place(pay,btn){
   const lines=p.lines.map(x=>x.id+' · '+x.title+' · '+(x.kind==='f'?'framed, with passe-partout':'poster, unframed')+' · $'+x.price).join('\n');
   const note=buyer.trim()+' · '+summary();
   btn.disabled=true;btn.textContent='sending…';
-  fetch(ORDERS,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({pay,order:orderNo,name:buyer.trim(),email:bEmail.trim(),phone:bPhone.trim(),items:summary(),lines,deal:p.deal?p.deal.text+' (−$'+p.deal.save+')':'',total:p.total,note})}).catch(()=>{}).finally(()=>view(pay));
+  const hp=(box.querySelector('#website')||{}).value||'';
+  const msg={limit:'this email has reached today\'s order limit. please ask the tota crew at the bar.',busy:'many orders right now. please try again in a few minutes.',email:'please check your email address.',phone:'please check your phone number.',name:'please check your name.'};
+  fetch(ORDERS,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({pay,order:orderNo,name:buyer.trim(),email:bEmail.trim(),phone:bPhone.trim(),items:p.lines.map(x=>({id:x.id,kind:x.kind})),website:hp})})
+   .then(r=>r.json()).then(j=>{if(j&&j.ok===false){btn.disabled=false;btn.textContent=pay==='cash'?'pay cash':'pay by whish';bad(msg[j.info]||'something went wrong. please ask the tota crew at the bar.')}else view(pay)})
+   .catch(()=>view(pay));
 }
 document.getElementById('bagGo').addEventListener('click',open);
 paint();
