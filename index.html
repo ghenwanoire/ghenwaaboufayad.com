@@ -118,6 +118,7 @@ body.bagged{padding-bottom:70px}
 #sheet .pay{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:22px}
 #sheet .pay button,#sheet .big{font:700 15px/1 'Libre Franklin',sans-serif;border:0;padding:18px 12px;cursor:pointer;background:var(--ink);color:#fff;text-transform:uppercase;letter-spacing:.02em}
 #sheet .pay button.alt{background:var(--block);color:var(--ink)}
+#sheet .err{color:#F1503C;font-weight:600;margin-top:10px}
 #sheet .hint{font-size:12px;color:var(--mute);margin-top:8px}
 #sheet .step{border-top:1px solid var(--line);padding:16px 0}
 #sheet .step .n{font-size:11px;color:var(--mute)}
@@ -326,7 +327,8 @@ document.querySelectorAll('.buy').forEach(b=>b.addEventListener('click',e=>{
   if(!same)sel.push({id,title:b.dataset.title,kind,price:+(kind==='f'?b.dataset.f:b.dataset.u),series:b.dataset.series});
   sel.sort((a,c)=>a.id.localeCompare(c.id));paint();
 }));
-let buyer='';
+let buyer='',bEmail='',bPhone='',orderNo='';
+const ORDERS='https://script.google.com/macros/s/AKfycbzIlcIMI8RSN8mziwdTem1bPR7asI2syb9MTRGlixFsMVz2gpi2KNWYOF7Mf2Ppr9EN/exec';
 function close(){sheet.classList.remove('show');document.body.style.overflow=''}
 function open(){sheet.classList.add('show');document.body.style.overflow='hidden';view('list')}
 function esc(t){return String(t).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]))}
@@ -340,17 +342,20 @@ function view(v){
   if(!sel.length){box.innerHTML=head+'<p>nothing selected yet. tap “add +” under a piece.</p>';return}
   if(v==='list'){
     box.innerHTML=head+items+'<label for="nm">your name</label><input id="nm" autocomplete="name" value="'+esc(buyer)+'" placeholder="first and last name">'
+      +'<label for="em">your email</label><input id="em" type="email" autocomplete="email" inputmode="email" value="'+esc(bEmail)+'" placeholder="you@example.com">'
+      +'<label for="ph">your phone</label><input id="ph" type="tel" autocomplete="tel" inputmode="tel" value="'+esc(bPhone)+'" placeholder="+961 …">'
+      +'<p class="hint">you get an email confirming your order. your details are only used for this order.</p><p class="err" hidden></p>'
       +'<div class="pay"><button type="button" data-a="cash">pay cash</button><button type="button" class="alt" data-a="whish">pay by whish</button></div>'
       +'<p class="hint">prices in US dollars. the framed copies on the wall are one of each; anything else is printed to order.</p><button class="back" type="button" data-a="clear">clear my selection</button>';
-    const nm=box.querySelector('#nm');nm.addEventListener('input',()=>{buyer=nm.value});
+    const nm=box.querySelector('#nm'),em=box.querySelector('#em'),ph=box.querySelector('#ph');nm.addEventListener('input',()=>{buyer=nm.value});em.addEventListener('input',()=>{bEmail=em.value});ph.addEventListener('input',()=>{bPhone=ph.value});
   }
   if(v==='cash'){
     box.innerHTML=head+'<div class="crew"><b>show this screen to the tota crew at the bar.</b><span>pay the total in cash. the crew writes your order on the sheet, with their own name.</span></div>'+items
-      +(buyer?'<p>name: <b>'+esc(buyer)+'</b></p>':'')+'<button class="back" type="button" data-a="list">← back</button>';
+      +'<p>order <b>'+esc(orderNo)+'</b> · name: <b>'+esc(buyer)+'</b><br>a confirmation is on its way to '+esc(bEmail)+'.</p><button class="back" type="button" data-a="list">← back</button>';
   }
   if(v==='whish'){
     const note=(buyer?buyer:'[your name]')+' · '+summary();
-    box.innerHTML=head+items
+    box.innerHTML=head+'<p>order <b>'+esc(orderNo)+'</b> · a confirmation is on its way to '+esc(bEmail)+'.</p>'+items
       +'<div class="step"><span class="n">1</span><p>copy the whish number</p><div class="copy"><code>'+WHISH+'</code><button type="button" data-copy="'+WHISH+'">copy</button></div></div>'
       +'<div class="step"><span class="n">2</span><p>copy the transfer note: your name, the pieces, framed or unframed</p><div class="copy"><code>'+esc(note)+'</code><button type="button" data-copy="'+esc(note)+'">copy</button></div>'+(buyer?'':'<p class="hint">add your name on the previous screen, or type it in the note.</p>')+'</div>'
       +'<div class="step"><span class="n">3</span><p>open your whish app, send <b>'+money(p.total)+'</b> to '+WHISH+' and paste the note.</p></div>'
@@ -363,8 +368,21 @@ sheet.addEventListener('click',e=>{
   if(rm){sel.splice(+rm.dataset.rm,1);paint();view('list');return}
   if(cp){const t=cp.dataset.copy;(navigator.clipboard?navigator.clipboard.writeText(t):Promise.reject()).catch(()=>{const r=document.createRange();r.selectNodeContents(cp.previousElementSibling);const s=getSelection();s.removeAllRanges();s.addRange(r);document.execCommand('copy')});cp.textContent='copied ✓';cp.classList.add('done');setTimeout(()=>{cp.textContent='copy';cp.classList.remove('done')},2200);return}
   if(!a)return;
-  if(a.dataset.a==='close')close();else if(a.dataset.a==='clear'){sel=[];buyer='';paint();close();}else view(a.dataset.a);
+  if(a.dataset.a==='close')close();else if(a.dataset.a==='clear'){sel=[];buyer='';bEmail='';bPhone='';paint();close();}else if(a.dataset.a==='cash'||a.dataset.a==='whish'){place(a.dataset.a,a)}else view(a.dataset.a);
 });
+function place(pay,btn){
+  const box=sheet.querySelector('.in'),err=box.querySelector('.err');
+  const bad=t=>{err.textContent=t;err.hidden=false};
+  if(!buyer.trim())return bad('please write your name.');
+  if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(bEmail.trim()))return bad('please write a valid email, so you get your confirmation.');
+  if(bPhone.replace(/\D/g,'').length<7)return bad('please write your phone number.');
+  const p=priced(),d=new Date(),z=n=>String(n).padStart(2,'0');
+  orderNo='T'+z(d.getMonth()+1)+z(d.getDate())+'-'+z(d.getHours())+z(d.getMinutes())+'-'+Math.floor(10+Math.random()*90);
+  const lines=p.lines.map(x=>x.id+' · '+x.title+' · '+(x.kind==='f'?'framed, with passe-partout':'poster, unframed')+' · $'+x.price).join('\n');
+  const note=buyer.trim()+' · '+summary();
+  btn.disabled=true;btn.textContent='sending…';
+  fetch(ORDERS,{method:'POST',headers:{'Content-Type':'text/plain;charset=utf-8'},body:JSON.stringify({pay,order:orderNo,name:buyer.trim(),email:bEmail.trim(),phone:bPhone.trim(),items:summary(),lines,deal:p.deal?p.deal.text+' (−$'+p.deal.save+')':'',total:p.total,note})}).catch(()=>{}).finally(()=>view(pay));
+}
 document.getElementById('bagGo').addEventListener('click',open);
 paint();
 
